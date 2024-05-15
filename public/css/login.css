@@ -87,6 +87,7 @@ input[type="checkbox"] {
     margin-top: -25px;
     position: relative;
     cursor: pointer;
+    color: white;
 }
 
 .remember-me {

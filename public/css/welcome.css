@@ -1,0 +1,15 @@
+.expertise {
+    display: flex; /* Mengaktifkan Flexbox */
+    justify-content: space-between; /* Menjaga jarak yang sama antar item */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    margin-bottom: 10px; /* Memberi jarak bawah */
+}
+
+.expertise input[type="text"], .expertise input[type="number"] {
+    flex: 1; /* Membuat input mengambil ruang yang tersedia */
+    margin-right: 10px; /* Memberi jarak antar input */
+}
+
+.expertise input:last-child {
+    margin-right: 0; /* Menghilangkan margin kanan pada input terakhir */
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\catatanController;
+use App\Http\Controllers\SuperadminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,18 +19,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [catatanController::class, 'index'])->name('login');
+    Route::post('/login', [catatanController::class, 'login'])->name('login');
+});
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::get('/home',function(){
+    return redirect('/dashboard');
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [SuperadminController::class, 'index'])->name('dashboard');
+    Route::get('/logout', [catatanController::class, 'logout'])->name('logout');
+});
+
 
 Route::get('/tambahAkun', function () {
     return view('tambahAkun');
 })->name('tambahAkun');
+
+Route::get('/pencatatan', function () {
+    return view('pencatatan');
+})->name('pencatatan');
 
 
 

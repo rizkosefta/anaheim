@@ -12,7 +12,7 @@
     <div class="sidebar">
         <div class="user-info">
             <div class="avatar"></div>
-            <p>USER</p>
+            <p><div class="Auth">{{ Auth::user()->name }}</div></p>
         </div>
         <div class="menu">
             <a href="#"><i class="fas fa-home"></i> Home</a>
@@ -21,7 +21,7 @@
             <a href="#"><i class="fas fa-user-plus"></i> Tambah Akun</a>
         </div>
         <div class="keluar">
-            <a href="#"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+            <a href="logout"><i class="fas fa-sign-out-alt"></i> Keluar</a>
         </div>
     </div>
     <div class="main-content">

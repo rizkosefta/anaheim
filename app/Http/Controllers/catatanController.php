@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class catatanController extends Controller
 {
@@ -14,6 +15,33 @@ class catatanController extends Controller
     public function index()
     {
         return view('login');
+    }
+
+    public function login(Request $request){
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ],[
+            'username.required' => 'user Name tidak boleh kosong',
+            'userName.required' => 'userName tidak valid',
+            'password.required' => 'Password tidak boleh kosong'
+        ]);
+
+        $infologin = [
+            'username' => $request->username,
+            'password' => $request->password
+        ];
+
+        if(Auth::attempt($infologin)){
+            return redirect('dashboard');
+        }else{
+            return redirect()->route('login')->with('error','Username atau Password salah');
+        }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('login');
     }
 
     /**

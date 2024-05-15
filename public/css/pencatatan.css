@@ -1,0 +1,82 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    background-color: #2B2C3E;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    color: white;
+    float: left;
+}
+
+.user-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.user-info .avatar {
+    background-color: #ccc;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.menu a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.keluar a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-top: 200px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    border-radius: 28px;
+    background-color: white;
+}
+
+.form-project {
+    width: 450px;
+    height: 610px;
+    margin-bottom: 15px;
+    align-content: center;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-project button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border:
