@@ -12,13 +12,13 @@
     <div class="sidebar">
         <div class="user-info">
             <div class="avatar"></div>
-            <p>USER</p>
+            <p><div class="Auth">{{ Auth::user()->name }}</div></p>
         </div>
         <div class="menu">
-            <a href="#"><i class="fas fa-home"></i> Home</a>
-            <a href="#"><i class="fas fa-book"></i> Pencatatan</a>
-            <a href="#"><i class="fas fa-chart-line"></i> Laporan</a>
-            <a href="#"><i class="fas fa-user-plus"></i> Tambah Akun</a>
+            <a href="/dashboard"><i class="bx bx-home"></i> Home</a>
+            <a href="/pencatatan"><i class="bx bx-book"></i> Pencatatan</a>
+            <a href="#"><i class="bx bx-line-chart"></i> Laporan</a>
+            <a href="/tambahAkun"><i class="bx bx-user-plus"></i> Tambah Akun</a>
         </div>
         <div class="keluar">
             <a href="#"><i class="fas fa-sign-out-alt"></i> Keluar</a>

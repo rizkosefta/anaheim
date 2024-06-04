@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/tambahAkun.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <title>Tambah Akun</title>
@@ -13,16 +13,16 @@
     <div class="sidebar">
         <div class="user-info">
             <div class="avatar"></div>
-            <p>USER</p>
+            <p><div class="Auth">{{ Auth::user()->name }}</div></p>
         </div>
         <div class="menu">
-            <a href="#"><i class="fas fa-home"></i> Home</a>
-            <a href="#"><i class="fas fa-book"></i> Pencatatan</a>
-            <a href="#"><i class="fas fa-chart-line"></i> Laporan</a>
-            <a href="#"><i class="fas fa-user-plus"></i> Tambah Akun</a>
+            <a href="/dashboard"><i class="bx bx-home"></i> Home</a>
+            <a href="/pencatatan"><i class="bx bx-book"></i> Pencatatan</a>
+            <a href="#"><i class="bx bx-line-chart"></i> Laporan</a>
+            <a href="/tambahAkun"><i class="bx bx-user-plus"></i> Tambah Akun</a>
         </div>
         <div class="keluar">
-            <a href="#"><i class="fas fa-sign-out-alt"></i> Keluar</a>
+            <a href="logout"><i class="bx bx-log-out"></i> Keluar</a>
         </div>
     </div>
     <div class="main-content">
