@@ -48,24 +48,27 @@
     <!-- Main Content -->
     <div class="content">
         <main>
+            {{-- header --}}
             <div class="header">
-                <li><i class='bx bx-dollar-circle'></i>
-                    <span class="info">
-                        <p>Total HPP Keseluruhan</p>
-                        <h3>
-                            Rp.1.000.000.000
-                        </h3>
-                        <p>Total Project</p>
-                        <h3>
-                            10
-                        </h3>
-                    </span>
-                </li>
-                <a href="/pencatatan" class="report">
-                    <i class='bx bx-plus'></i>
-                    <span>Tambah Project</span>
-                </a>
+                    <li class="card-total">
+                        <i class='bx bx-dollar-circle'></i>
+                        <span class="info">
+                            <p>Total HPP Keseluruhan</p>
+                            <h3>
+                                Rp.1.000.000.000
+                            </h3>
+                            <p>Total Project</p>
+                            <h3>
+                                10
+                            </h3>
+                        </span>
+                    </li>
+                    <a href="/pencatatan" class="btn-tambah">
+                        <i class='bx bx-plus'></i>
+                        <span>Tambah Project</span>
+                    </a>
             </div>
+            {{-- akhir header --}}
 
             <!-- Insights -->
             <ul class="insights">

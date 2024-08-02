@@ -47,10 +47,24 @@ closeAddAccountPopup.addEventListener('click', function () {
     addAccountPopup.style.display = 'none';
 });
 
+// Ambil elemen-elemen yang diperlukan
+var editAccountPopup = document.getElementById('editAccountPopup');
+var openEditAccountPopup = document.getElementById('openEditAccountPopup');
+var closeEditAccountPopup = document.getElementById('closeEditAccountPopup');
+
+// Fungsi untuk membuka popup
+openEditAccountPopup.addEventListener('click', function () {
+    editAccountPopup.style.display = 'block';
+});
+
+// Fungsi untuk menutup popup
+closeEditAccountPopup.addEventListener('click', function () {
+    editAccountPopup.style.display = 'none';
+});
 // Jika pengguna mengklik di luar popup, tutup popup
 window.addEventListener('click', function (event) {
-    if (event.target == addAccountPopup) {
-        addAccountPopup.style.display = 'none';
+    if (event.target == editAccountPopup) {
+        editAccountPopup.style.display = 'none';
     }
 });
 

@@ -189,6 +189,124 @@
                 </form>
             </div>
         </div>
+
+        <div class="popup" id="editAccountPopup">
+            <div class="popup-content">
+                <form class="form-add-account" method="post" action="{{ route('pencatatan.store') }}">
+                    @csrf
+                    <div class="form-group-container">
+                        <div class="form-group">
+                            <label for="nama_project">Nama Project</label>
+                            <input type="text" id="nama_project" name="nama_project" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal">Tanggal</label>
+                            <input type="date" id="tanggal" name="tanggal" required>
+                        </div>
+                    </div>
+                    <label>Tenaga ahli :</label>
+                    <div class="form-group-container">
+                        <div class="form-group">
+                            <label for="frontend">Frontend</label>
+                            <div class="input-group">
+                                <input type="number" id="frontend" name="frontend" min="0" required>
+                                <span>x</span>
+                                <input type="number" id="jumlahFrontend" name="jumlahFrontend" class="short-input"
+                                    min="0" required>
+                                <span>Orang</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="uiux">UI & UX</label>
+                            <div class="input-group">
+                                <input type="number" id="uiux" name="uiux" min="0" required>
+                                <span>x</span>
+                                <input type="number" id="jumlahUiux" name="jumlahUiux" class="short-input"
+                                    min="0" required>
+                                <span>Orang</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group-container">
+                        <div class="form-group">
+                            <label for="backend">Backend</label>
+                            <div class="input-group">
+                                <input type="number" id="backend" name="backend" min="0" required>
+                                <span>x</span>
+                                <input type="number" id="jumlahBackend" name="jumlahBackend" class="short-input"
+                                    min="0" required>
+                                <span>Orang</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="consultant_it">Consultant IT</label>
+                            <div class="input-group">
+                                <input type="number" id="consultant_it" name="consultant_it" min="0"
+                                    required>
+                                <span>x</span>
+                                <input type="number" id="jumlahConsultantIt" name="jumlahConsultantIt"
+                                    class="short-input" min="0" required>
+                                <span>Orang</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="transportasi">Transportasi</label>
+                        <div class="input-group">
+                            <input type="number" id="transportasi" name="transportasi" min="0" required>
+                            <span>x</span>
+                            <input type="number" id="jumlahTransportasi" name="jumlahTransportasi"
+                                class="short-input" min="0" required>
+                            <span>Balikan</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="penginapan">Penginapan</label>
+                        <div class="input-group">
+                            <input type="number" id="penginapan" name="penginapan" min="0" required>
+                            <span>x</span>
+                            <input type="number" id="jumlahPenginapan" name="jumlahPenginapan" class="short-input"
+                                min="0" required>
+                            <span>Malam</span>
+                        </div>
+                    </div>
+                    <div class="form-group-container">
+                        <div class="form-group">
+                            <label for="konsumsi">Konsumsi</label>
+                            <div class="input-group">
+                                <input type="number" id="konsumsi" name="konsumsi" min="0" required>
+                                <span>x</span>
+                                <input type="number" id="jumlahKonsumsi" name="jumlahKonsumsi" class="short-input"
+                                    min="0" required>
+                                <span>Makan</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="total">Total</label>
+                            <div class="input-group">
+                                <input type="number" id="total" name="total" min="0" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group-container">
+                        <div class="form-group">
+                            <label for="pajak">Pajak</label>
+                            <div class="input-group">
+                                <input type="number" id="pajak" name="pajak" min="0" required>
+                                <span>%</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Simpan</button>
+                        </div>
+                        <div class="form-group">
+                            <button type="reset" id="closeEditAccountPopup">Batal</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="table-container">
             <table id="project-table">
                 <thead>
@@ -205,6 +323,7 @@
                         <th>Konsumsi</th>
                         <th>Pajak</th>
                         <th>Total</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 @foreach ($data_pencatatan as $item)
@@ -212,15 +331,18 @@
                     <th>{{$item['id']}}</th>
                     <th>{{$item['nama_project']}}</th>
                     <th>{{$item['tanggal']}}</th>
-                    <th>{{$item['frontend']}}</th>
-                    <th>{{$item['uiux']}}</th>
+                    <th>{{$item['frontend']*$item['jumlahFrontend']}}</th>
+                    <th>{{$item['uiux']*$item['jumlahUiux']}}</th>
                     <th>{{$item['backend']*$item['jumlahBackend']}}</th>
-                    <th>{{$item['consultant_it']}}</th>
-                    <th>{{$item['transportasi']}}</th>
-                    <th>{{$item['penginapan']}}</th>
-                    <th>{{$item['konsumsi']}}</th>
+                    <th>{{$item['consultant_it']*$item['jumlahConsultantIt']}}</th>
+                    <th>{{$item['transportasi']*$item['jumlahTransportasi']}}</th>
+                    <th>{{$item['penginapan']*$item['jumlahPenginapan']}}</th>
+                    <th>{{$item['konsumsi']*$item['jumlahKonsumsi']}}</th>
                     <th>{{$item['pajak']}} %</th>
                     <th>{{$item['total']}}</th>
+                    <th><a class="btn" id="openEditAccountPopup"><i class='bx bx-edit'></i></a>
+                        <a href="" class="btn_delet"><i class='bx bx-trash'></i></a>
+                    </th>
                 </tr>
                 @endforeach
                 <tbody id="project-table-body">

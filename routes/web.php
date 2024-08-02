@@ -43,7 +43,9 @@ Route::post('/tambahAkun/create', [SuperadminController::class, 'create'])->name
 
 Route::post('/pencatatan/store', [PencatatanController::class, 'store'])->name('pencatatan.store');
 Route::get('/pencatatan', [PencatatanController::class, 'index'])->name('pencatatan');
+Route::get('/editprojek','pencatatanController@edit')->name('editprojek');
 
 Route::get('/laporan', function () {
     return view('laporan');
 })->name('laporan');
+Route::get('/laporan', [PencatatanController::class, 'index'])->name('laporan');

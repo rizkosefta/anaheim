@@ -68,4 +68,12 @@ class PencatatanController extends Controller
         $data_pencatatan=pencatatan::all();
         return view('pencatatan',compact('data_pencatatan'));
     }
+
+    public function edit ($btn_edit)
+{
+    $pencatatan = pencatatan::find($btn_edit);
+    return view('pencatatan', compact('pencatatan'));
 }
+}
+
+
